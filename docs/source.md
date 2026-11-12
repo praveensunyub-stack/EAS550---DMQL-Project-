@@ -4,8 +4,8 @@ This is synthetic data from the Synthea project, published by the Synthetic Heal
 
 - Publisher and small sample: https://synthetichealth.github.io/synthea-sample-data/
 - CSV field dictionary: https://github.com/synthetichealth/synthea/wiki/CSV-File-Data-Dictionary
-- Input supplied by the user: `synthea_sample_data_csv_latest.zip`.
-- Inspection date: November 11, 2026. Original retrieval date, generator version and generation date: **unknown**. Do not infer them from the filename or filesystem timestamp.
+- Input: `synthea_sample_data_csv_latest.zip`.
+- Independently verified by Thomas on November 11, 2026: the ZIP SHA-256, all three member file hashes, row counts, encounter class list and count of missing stop times match this document. Original retrieval date, generator version and generation date: **unknown**. Do not infer them from the filename or filesystem timestamp.
 - SHA-256: `990d52064037bbf83d10f13163da428964b56ae673b7f39bf549d78c1e7eda16`.
 
 ## Reproducing the exact input
@@ -46,7 +46,7 @@ Other columns are deliberately omitted. Code/description pairs can introduce add
 
 ## Rules and valid exceptions
 
-Keys must be UUIDs and required fields must be present. Whitespace normalization and canonical representations are explained in loader reports. Invalid nonempty dates, timestamps or amounts are rejected rather than converted to NULL. Dates and aware timestamps must parse and be finite; death must not precede birth, stop must not precede start, and encounter start must not precede patient birth. These are subset-quality rules, not clinical claims.
+Keys must be UUIDs and required fields must be present. Whitespace normalization and canonical representations are explained in loader reports. Invalid nonempty dates, timestamps or amounts are rejected rather than converted to NULL. Dates and aware timestamps must parse and be finite; death must not precede birth, stop must not precede start, and encounter start must not precede patient birth. These are subset-quality rules, not clinical claims. The rule that an encounter must not start before the patient's birth compares columns in two tables, so the loader enforces it; 'schema.sql' cannot express it as a 'CHECK' constraint. 
 
 Death and stop may be absent. Names are not unique, and a patient may visit the same organization repeatedly. The fixed snapshot permits ten encounter classes: ambulatory, emergency, home, hospice, inpatient, outpatient, snf, urgentcare, virtual and wellness. Future snapshots require a reviewed contract change. Costs are finite nonnegative Decimal values with no more than two decimal places and no more than 12 integer digits. Invalid rows receive explicit reasons; parent rejection can cause encounter rejection.
 
