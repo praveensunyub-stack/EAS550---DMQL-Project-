@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="780" viewBox="0 0 960 780" role="img" aria-labelledby="title desc">
+  <title id="title">Phase 1 ER Diagram</title>
+  <desc id="desc">Simple ER diagram with patients, organizations, and encounters tables.</desc>
+  <defs>
+    <style>
+      .title { font: 700 30px Arial, Helvetica, sans-serif; fill: #1f2937; }
+      .table-title { font: 700 20px Arial, Helvetica, sans-serif; fill: #111827; }
+      .field { font: 16px Arial, Helvetica, sans-serif; fill: #111827; }
+      .label { font: 14px Arial, Helvetica, sans-serif; fill: #374151; }
+      .small { font: 700 14px Arial, Helvetica, sans-serif; fill: #374151; }
+      .box { fill: #ffffff; stroke: #334155; stroke-width: 2; }
+      .header { fill: #e9eef5; stroke: #334155; stroke-width: 2; }
+      .rowline { stroke: #cbd5e1; stroke-width: 1; }
+      .connector { stroke: #475569; stroke-width: 2.5; fill: none; }
+      .card { fill: #ffffff; stroke: #64748b; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <text x="480" y="48" text-anchor="middle" class="title">Phase 1 Source ER Diagram</text>
+
+  <!-- Patients table -->
+  <g transform="translate(90,110)">
+    <rect class="box" x="0" y="0" rx="10" ry="10" width="270" height="220"/>
+    <rect class="header" x="0" y="0" rx="10" ry="10" width="270" height="48"/>
+    <rect fill="#e9eef5" x="0" y="38" width="270" height="10"/>
+    <text x="135" y="30" text-anchor="middle" class="table-title">PATIENTS</text>
+    <line class="rowline" x1="0" y1="90" x2="270" y2="90"/>
+    <line class="rowline" x1="0" y1="130" x2="270" y2="130"/>
+    <line class="rowline" x1="0" y1="170" x2="270" y2="170"/>
+    <text x="18" y="75" class="field">patient_id (PK)</text>
+    <text x="18" y="115" class="field">birth_date</text>
+    <text x="18" y="155" class="field">death_date</text>
+    <text x="18" y="195" class="field">gender</text>
+  </g>
+
+  <!-- Organizations table -->
+  <g transform="translate(600,110)">
+    <rect class="box" x="0" y="0" rx="10" ry="10" width="270" height="220"/>
+    <rect class="header" x="0" y="0" rx="10" ry="10" width="270" height="48"/>
+    <rect fill="#e9eef5" x="0" y="38" width="270" height="10"/>
+    <text x="135" y="30" text-anchor="middle" class="table-title">ORGANIZATIONS</text>
+    <line class="rowline" x1="0" y1="90" x2="270" y2="90"/>
+    <line class="rowline" x1="0" y1="130" x2="270" y2="130"/>
+    <line class="rowline" x1="0" y1="170" x2="270" y2="170"/>
+    <text x="18" y="75" class="field">organization_id (PK)</text>
+    <text x="18" y="115" class="field">name</text>
+    <text x="18" y="155" class="field">city</text>
+    <text x="18" y="195" class="field">state</text>
+  </g>
+
+  <!-- Encounters table -->
+  <g transform="translate(325,410)">
+    <rect class="box" x="0" y="0" rx="10" ry="10" width="310" height="320"/>
+    <rect class="header" x="0" y="0" rx="10" ry="10" width="310" height="48"/>
+    <rect fill="#e9eef5" x="0" y="38" width="310" height="10"/>
+    <text x="155" y="30" text-anchor="middle" class="table-title">ENCOUNTERS</text>
+    <line class="rowline" x1="0" y1="85" x2="310" y2="85"/>
+    <line class="rowline" x1="0" y1="120" x2="310" y2="120"/>
+    <line class="rowline" x1="0" y1="155" x2="310" y2="155"/>
+    <line class="rowline" x1="0" y1="190" x2="310" y2="190"/>
+    <line class="rowline" x1="0" y1="225" x2="310" y2="225"/>
+    <line class="rowline" x1="0" y1="260" x2="310" y2="260"/>
+    <line class="rowline" x1="0" y1="295" x2="310" y2="295"/>
+    <text x="18" y="75" class="field">encounter_id (PK)</text>
+    <text x="18" y="110" class="field">patient_id (FK)</text>
+    <text x="18" y="145" class="field">organization_id (FK)</text>
+    <text x="18" y="180" class="field">start_time</text>
+    <text x="18" y="215" class="field">stop_time</text>
+    <text x="18" y="250" class="field">encounter_class</text>
+    <text x="18" y="285" class="field">base_encounter_cost</text>
+  </g>
+
+  <!-- Connectors -->
+  <path class="connector" marker-end="url(#arrow)" d="M 225 330 L 225 380 L 430 380 L 430 410"/>
+  <path class="connector" marker-end="url(#arrow)" d="M 735 330 L 735 380 L 530 380 L 530 410"/>
+
+  <!-- Cardinality labels -->
+  <circle class="card" cx="225" cy="348" r="18"/>
+  <text x="225" y="353" text-anchor="middle" class="small">1</text>
+  <rect class="card" x="316" y="362" rx="7" ry="7" width="108" height="28"/>
+  <text x="370" y="381" text-anchor="middle" class="label">0..many</text>
+
+  <circle class="card" cx="735" cy="348" r="18"/>
+  <text x="735" y="353" text-anchor="middle" class="small">1</text>
+  <rect class="card" x="536" y="362" rx="7" ry="7" width="108" height="28"/>
+  <text x="590" y="381" text-anchor="middle" class="label">0..many</text>
+
+  <!-- Relationship labels -->
+  <text x="290" y="405" text-anchor="middle" class="label">has</text>
+  <text x="670" y="405" text-anchor="middle" class="label">hosts</text>
+</svg>
