@@ -34,6 +34,6 @@ We have 3 tables: `source.patients`, `source.organizations` and `source.encounte
 
 `PK` is primary key, `FK` is foreign key. Only `death_date`, `state` and `stop_time` may be NULL. Each encounter has an id of its own, so that one patient may have more than one encounter at the same organization.
 
-All the database constraints are defined in [design_note.md](design_note.md) and [schema.sql](../schema.sql).
+
 
 ![ER diagram as SVG](erd.svg)
