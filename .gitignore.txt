@@ -1,0 +1,28 @@
+# secrets and local files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Store raw data locally only. Only Phase 1 small ZIP file can be added.
+data/raw/
+*.zip
+!data/phase1_subset.zip
+
+# python and database local files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+pgdata/
+*.log
+
+# Editor and System Files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
