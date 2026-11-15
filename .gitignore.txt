@@ -5,7 +5,7 @@
 *.pem
 *.key
 
-# Store raw data locally only. Only Phase 1 small ZIP file can be added.
+# Store raw data locally only.
 data/raw/
 *.zip
 !data/phase1_subset.zip
