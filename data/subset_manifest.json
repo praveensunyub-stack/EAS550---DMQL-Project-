@@ -1,0 +1,62 @@
+{
+  "archive": {
+    "bytes": 150921,
+    "filename": "phase1_subset.zip",
+    "sha256": "4af25e6f8ff752de520250795c2760d8635d48247fafbdfe48965eb19fb8ddd2"
+  },
+  "attribution": "We utilized the Synthea sample dataset provided by our professor in the link for Phase 1 of EAS 550.",
+  "dataset": "Synthea data - our Phase 1 selected columns",
+  "dictionary": "https://github.com/synthetichealth/synthea/wiki/CSV-File-Data-Dictionary",
+  "encounter_grain": "There is one encounter per row, with its unique encounter ID.",
+  "files": {
+    "encounters.csv": {
+      "columns_used": [
+        "Id",
+        "PATIENT",
+        "ORGANIZATION",
+        "START",
+        "STOP",
+        "ENCOUNTERCLASS",
+        "BASE_ENCOUNTER_COST"
+      ],
+      "original_csv_sha256": "7f9723603541d7dc64d4cbb4862b5d381513e8d4f0c812b74caa6f1749856ef8",
+      "rows": 5059,
+      "sha256": "88dc746f34ec3064b3cc4eefb062b9f3e852d008169cb4e7dce9bde932354440"
+    },
+    "organizations.csv": {
+      "columns_used": [
+        "Id",
+        "NAME",
+        "CITY",
+        "STATE"
+      ],
+      "original_csv_sha256": "1b7d32d8ef8ac165c59e7861119a901e3296eb36d3f2baa15140ed01cb159c78",
+      "rows": 267,
+      "sha256": "fdcdf2b35336b92702199b781417dbb993623bfb930b3618861d7bc591fd705a"
+    },
+    "patients.csv": {
+      "columns_used": [
+        "Id",
+        "BIRTHDATE",
+        "DEATHDATE",
+        "GENDER"
+      ],
+      "original_csv_sha256": "7cc321753455e7cd0cabe0d7526432d7329fe6a4522e408f97a62819ee99e280",
+      "rows": 111,
+      "sha256": "7ab217b3b6ea305d8e165c812b898e78cf6a0ef6fa01d42b09077fc697168cc5"
+    }
+  },
+  "generator_version": null,
+  "inspected_date": "2026-11-12",
+  "provenance": "The Synthea CSV ZIP file was taken from the link provided by our professor. We included all the rows of the three selected CSV files.",
+  "selection": "All the rows of patients.csv, organizations.csv, and encounters.csv were used without filtering the date or selecting any random rows, but only the required columns mentioned above. The organizations that do not have any encounters were also included. No other CSV files were used",
+  "snapshot_format_version": 1,
+  "source_page": "https://synthetichealth.github.io/synthea/",
+  "upstream_archive": {
+    "bytes": 5446315,
+    "filename": "synthea_sample_data_csv_latest.zip",
+    "sha256": "990d52064037bbf83d10f13163da428964b56ae673b7f39bf549d78c1e7eda16"
+  },
+  "upstream_manifest": "data/manifest.json",
+  "source_download": "https://synthetichealth.github.io/synthea-sample-data/downloads/latest/synthea_sample_data_csv_latest.zip"
+}
