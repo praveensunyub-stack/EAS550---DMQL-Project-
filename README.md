@@ -18,9 +18,8 @@ There is no filtering of data by date nor any random selection of rows. There ar
 
 UUID is the primary key in each table. Every encounter is related to one patient and one organization through foreign keys. One patient and one organization may be related to many encounters or even have no encounters at all. When the same patient visits the same organization more than once, each visit is recorded as a new row. Empty death date and stop time values are allowed, NUMERIC(14,2) was used for storing the precise base encounter cost.
 
-The (docs/erd.svg) displays the relationship between our tables. Our (docs/design_note.md) describes functional dependencies, 3NF, database constraints, and exceptions. The schema.sql file will create our tables and indexes when it runs in an empty database.
+The (([docs/erd.svg](https://github.com/praveensunyub-stack/EAS550---DMQL-Project-/blob/main/docs/erd.md))) displays the relationship between our tables. Our (docs/design_note.md) describes functional dependencies, 3NF, database constraints, and exceptions. The schema.sql file will create our tables and indexes when it runs in an empty database.
 
-Synthea was also listed as our data source and we used its [CSV dictionary]\((https://github.com/synthetichealth/synthea/wiki/CSV-File-Data-Dictionary)) to identify the column names. As we have synthetic healthcare data, we are using it just for demonstrating how our database functions.
 
 ## Setup and execution
 
@@ -98,7 +97,7 @@ The test was performed using our dataset twice, with each run containing 111 pat
 | Null death dates | 99 |
 | Encounters starting after a recorded death date | 10 retained warnings |
 
-The cause of the ten chronology anomalies is unknown. We preserve their original values and report their encounter IDs. The full input has no missing stop times; the small fixture verifies that missing stop times remain valid.We found 10 instances where the time stamp was later than the death date of the patient. Since we are not sure about the exact cause behind these instances, we retained all these values without changing anything. No assumption of value was made. There are no missing values for the stop time in the entire data set. However, there is an instance of test data where there are missing values for stop time.
+We preserve their original values and report their encounter IDs. The full input has no missing stop times; the small fixture verifies that missing stop times remain valid.We found 10 instances where the time stamp was later than the death date of the patient. Since we are not sure about the exact cause behind these instances, we retained all these values without changing anything. No assumption of value was made. There are no missing values for the stop time in the entire data set. However, there is an instance of test data where there are missing values for stop time.
 
 The test result data is stored in (evidence/recorded/load1.json), (evidence/recorded/verify1.json), (evidence/recorded/load2.json), (evidence/recorded/verify2.json), and the (evidence/recorded/rerun_comparison.json). If we conduct the test once more, then timestamp may be different, but the results would remain the same.
 
