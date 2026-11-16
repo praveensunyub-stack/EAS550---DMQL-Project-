@@ -10,7 +10,7 @@ Team : Praveen, Akshitha, and Thomas. Our work involved designing the tables for
 
 For our project, we have made sure to keep all encounters as individual records, we have checked the references, and we have loaded patients and organizations before the encounters. Automated tests have been done and all 33 tests have passed. We have also done the data loading twice and each time we got 111 patients, 267 organizations, and 5,059 encounters. All IDs, complete row hashes, and total values are identical for both data loads.
 
-[integration notes](docs/integration_notes.md) for our project contain information about the completed work and test results. [verification report](../evidence/recorded/verify2.json) and [rerun comparison](../evidence/recorded/rerun_comparison.json) include record counts and data validation.
+[integration notes](integration_notes.md) for our project contain information about the completed work and test results. [verification report](../evidence/recorded/verify2.json) and [rerun comparison](../evidence/recorded/rerun_comparison.json) include record counts and data validation.
 
-We worked all together while implementing and testing Phase 1. We even sought some help from AI during debugging in case we had errors in our code. We looked at the suggested solutions, made the necessary adjustments and re-ran our tests. This has been reflected in our docs/[AI_USAGE.md](AI_USAGE.md).
+We worked all together while implementing and testing Phase 1. We even sought some help from AI during debugging in case we had errors in our code. We looked at the suggested solutions, made the necessary adjustments and re-ran our tests. This has been explained in our docs/[AI_USAGE.md](AI_USAGE.md).
 
