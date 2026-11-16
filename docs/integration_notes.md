@@ -16,6 +16,6 @@ In our recording, at the beginning, a small dataset was checked that contained 2
 
 The results of our recorded test results revealed that there were 33 successful tests, which comprised of 18 validation tests, 3 fingerprint tests, and 12 database and transaction tests. The two full loads had the same IDs, row hash, data quality results, and totals.
 
-There are 10 cases where the starting time was later than the patient's death date. We retained all the records. We did not make any changes to any original value. The results are visible in the verification report.
+There are 10 cases where the starting time was later than the patient's death date. We retained all the records. All ten are Synthea "Death Certification" encounters, which the simulator schedules after death, so they are valid. We did not make any changes to any original value. The results are visible in the verification report.
 
 We all three have worked together in implementing and testing this project. Sometimes we even took help from AI while debugging the code in case there were any errors. After doing the error corrections, we executed the test again and did the verification.
