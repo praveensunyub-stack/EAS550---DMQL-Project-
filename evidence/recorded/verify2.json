@@ -1,0 +1,75 @@
+{
+  "checks": {
+    "death_before_birth": 0,
+    "encounters_before_birth": 0,
+    "exactly_three_source_tables": true,
+    "invalid_costs": 0,
+    "missing_organization_references": 0,
+    "missing_patient_references": 0,
+    "stop_before_start": 0
+  },
+  "generated_at_utc": "2026-11-13T02:41:10.257568+00:00",
+  "measures": {
+    "encounters_by_class": {
+      "ambulatory": 2446,
+      "emergency": 195,
+      "home": 26,
+      "hospice": 7,
+      "inpatient": 81,
+      "outpatient": 855,
+      "snf": 11,
+      "urgentcare": 172,
+      "virtual": 27,
+      "wellness": 1239
+    },
+    "null_death_count": 99,
+    "null_stop_count": 0,
+    "referenced_organization_count": 232,
+    "referenced_patient_count": 111,
+    "total_base_encounter_cost": "609964.59",
+    "total_completed_duration_seconds": "89458859"
+  },
+  "passed": true,
+  "postgresql_version": "18.6",
+  "source_matches_database": {
+    "encounters": true,
+    "organizations": true,
+    "patients": true
+  },
+  "tables": {
+    "encounters": {
+      "content_sha256": "dd6dd0e3158b0e35f11bfca9ea5a47528e059263eef0d272134175e2967edf40",
+      "duplicate_key_rows": 0,
+      "key_sha256": "bff7a303141c983bb0dc6a3e6db16a5295e826dec4b7d9a639a03b759bc6c226",
+      "row_count": 5059
+    },
+    "organizations": {
+      "content_sha256": "8134021dc010b7ba6402392cd1c11f61aa693673f7434ea1e500ca1a8dbd1e6e",
+      "duplicate_key_rows": 0,
+      "key_sha256": "55ff69a2eff8a7261cfd3699d402b1e3ec32ac5441dd1e674451ef4854a3b2f2",
+      "row_count": 267
+    },
+    "patients": {
+      "content_sha256": "7ce475c131e0da33e4618a41dd6288a2640128ab49a6dd41973e0d5adc34abc0",
+      "duplicate_key_rows": 0,
+      "key_sha256": "e46353d10b4a70beaf18d7bd007affd667c708efae7c9f00a6dfa2d3169d1a54",
+      "row_count": 111
+    }
+  },
+  "warnings": {
+    "encounter_ids": [
+      "0f24196d-4714-8a74-f48e-37eaa1e05ab0",
+      "10bb8914-0338-90ea-6670-3f151ad37f17",
+      "2f3c8454-b3b8-bab6-ac73-5975ac09a3d8",
+      "302b2f8f-6bb2-b242-3b27-e2fc399dd99a",
+      "412924da-140d-9d54-70ff-3b75d2f7c05b",
+      "65cc56ef-1ffc-bfac-cd0c-769f211fdd72",
+      "7c87af7a-02a0-d387-99b4-01a864350182",
+      "bbd027f2-6ec0-ef30-eabb-0423a5ed553f",
+      "e4f07ffe-9732-4495-0d10-e9aad6aff735",
+      "f75ba0c0-3571-3d63-56c7-2be3acdfaf01"
+    ],
+    "encounters_after_death": 10,
+    "policy": "Retain source values; report chronology anomalies without inventing corrections."
+  }
+}

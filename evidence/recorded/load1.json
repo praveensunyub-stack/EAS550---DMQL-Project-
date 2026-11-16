@@ -1,0 +1,124 @@
+{
+  "completed_at_utc": "2026-11-13T02:41:09.124465+00:00",
+  "corrections": [],
+  "load_strategy": "transactional_full_reload",
+  "manifest_checked": true,
+  "policy": {
+    "duplicates": "identical projected rows: keep first; conflicting IDs: reject every instance",
+    "missing_optional": "blank death_date, stop_time or state becomes NULL; not a correction",
+    "post_death": "retain and flag; do not invent a corrected date"
+  },
+  "record_numbering": "header is record 1; first data record is 2",
+  "rejected": [],
+  "selection": "all rows of patients.csv, organizations.csv, encounters.csv; selected columns only",
+  "source_files": {
+    "encounters.csv": "88dc746f34ec3064b3cc4eefb062b9f3e852d008169cb4e7dce9bde932354440",
+    "organizations.csv": "fdcdf2b35336b92702199b781417dbb993623bfb930b3618861d7bc591fd705a",
+    "patients.csv": "7ab217b3b6ea305d8e165c812b898e78cf6a0ef6fa01d42b09077fc697168cc5"
+  },
+  "started_at_utc": "2026-11-13T02:41:08.826790+00:00",
+  "status": "committed",
+  "tables": {
+    "encounters": {
+      "accepted_rows": 5059,
+      "corrected_rows": 0,
+      "correction_cells": 0,
+      "correction_reasons": {},
+      "expected_nulls": {
+        "stop_time": 0
+      },
+      "input_rows": 5059,
+      "rejected_rows": 0,
+      "rejection_reasons": {}
+    },
+    "organizations": {
+      "accepted_rows": 267,
+      "corrected_rows": 0,
+      "correction_cells": 0,
+      "correction_reasons": {},
+      "expected_nulls": {
+        "state": 0
+      },
+      "input_rows": 267,
+      "rejected_rows": 0,
+      "rejection_reasons": {}
+    },
+    "patients": {
+      "accepted_rows": 111,
+      "corrected_rows": 0,
+      "correction_cells": 0,
+      "correction_reasons": {},
+      "expected_nulls": {
+        "death_date": 99
+      },
+      "input_rows": 111,
+      "rejected_rows": 0,
+      "rejection_reasons": {}
+    }
+  },
+  "warning_counts": {
+    "encounter_after_death_retained": 10
+  },
+  "warnings": [
+    {
+      "id": "10bb8914-0338-90ea-6670-3f151ad37f17",
+      "reason": "encounter_after_death_retained",
+      "source_row": 332,
+      "table": "encounters"
+    },
+    {
+      "id": "0f24196d-4714-8a74-f48e-37eaa1e05ab0",
+      "reason": "encounter_after_death_retained",
+      "source_row": 675,
+      "table": "encounters"
+    },
+    {
+      "id": "bbd027f2-6ec0-ef30-eabb-0423a5ed553f",
+      "reason": "encounter_after_death_retained",
+      "source_row": 1480,
+      "table": "encounters"
+    },
+    {
+      "id": "e4f07ffe-9732-4495-0d10-e9aad6aff735",
+      "reason": "encounter_after_death_retained",
+      "source_row": 1945,
+      "table": "encounters"
+    },
+    {
+      "id": "f75ba0c0-3571-3d63-56c7-2be3acdfaf01",
+      "reason": "encounter_after_death_retained",
+      "source_row": 2126,
+      "table": "encounters"
+    },
+    {
+      "id": "302b2f8f-6bb2-b242-3b27-e2fc399dd99a",
+      "reason": "encounter_after_death_retained",
+      "source_row": 3438,
+      "table": "encounters"
+    },
+    {
+      "id": "65cc56ef-1ffc-bfac-cd0c-769f211fdd72",
+      "reason": "encounter_after_death_retained",
+      "source_row": 4030,
+      "table": "encounters"
+    },
+    {
+      "id": "7c87af7a-02a0-d387-99b4-01a864350182",
+      "reason": "encounter_after_death_retained",
+      "source_row": 4362,
+      "table": "encounters"
+    },
+    {
+      "id": "2f3c8454-b3b8-bab6-ac73-5975ac09a3d8",
+      "reason": "encounter_after_death_retained",
+      "source_row": 4427,
+      "table": "encounters"
+    },
+    {
+      "id": "412924da-140d-9d54-70ff-3b75d2f7c05b",
+      "reason": "encounter_after_death_retained",
+      "source_row": 4699,
+      "table": "encounters"
+    }
+  ]
+}
