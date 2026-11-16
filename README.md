@@ -20,6 +20,7 @@ UUID is the primary key in each table. Every encounter is related to one patient
 
 The (([docs/erd.svg](https://github.com/praveensunyub-stack/EAS550---DMQL-Project-/blob/main/docs/erd.md))) displays the relationship between our tables. Our (docs/design_note.md) describes functional dependencies, 3NF, database constraints, and exceptions. The schema.sql file will create our tables and indexes when it runs in an empty database.
 
+Our data source is Synthea, a synthetic patient generator by The MITRE Corporation. We used its [CSV dictionary](https://github.com/synthetichealth/synthea/wiki/CSV-File-Data-Dictionary) to identify the column names. The data is synthetic, so our results only demonstrate how the database works and are not clinical conclusions.
 
 ## Setup and execution
 
@@ -97,7 +98,7 @@ The test was performed using our dataset twice, with each run containing 111 pat
 | Null death dates | 99 |
 | Encounters starting after a recorded death date | 10 retained warnings |
 
-We preserve their original values and report their encounter IDs. The full input has no missing stop times; the small fixture verifies that missing stop times remain valid.We found 10 instances where the time stamp was later than the death date of the patient. Since we are not sure about the exact cause behind these instances, we retained all these values without changing anything. No assumption of value was made. There are no missing values for the stop time in the entire data set. However, there is an instance of test data where there are missing values for stop time.
+The ten encounters that start after the recorded death date are all Synthea "Death Certification" encounters, which the simulator schedules after death. They are valid, so we keep their original values and report their encounter IDs as warnings. The full input has no missing stop times; the small fixture verifies that a missing stop time remains valid.
 
 The test result data is stored in (evidence/recorded/load1.json), (evidence/recorded/verify1.json), (evidence/recorded/load2.json), (evidence/recorded/verify2.json), and the (evidence/recorded/rerun_comparison.json). If we conduct the test once more, then timestamp may be different, but the results would remain the same.
 
