@@ -62,7 +62,7 @@ Firstly, the acceptance program creates the tables, loads the small test data fr
 PASS: small fixture, full source load, source-to-database reconciliation, and unchanged rerun.
 ```
 
-Test report files are stored in evidence/reproduced/. Any failed test would result in a non-zero exit code. In case of macOS or Linux, we could use python3 -m venv .venv and .venv/bin/python along with shell export for six connection variables. Rest all of Python module arguments would remain the same.
+Test report files are stored in evidence/reproduced/. Any failed test would result in a non-zero exit code.
 
 ## Validation and safe reruns
 
