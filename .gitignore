@@ -1,27 +1,46 @@
-# secrets and local files
+# Environment files and credentials.
 .env
 .env.*
 !.env.example
 *.pem
 *.key
+.dbt/
 
-# Store raw data locally only.
-data/raw/
+# We keep the Phase 1 sample ZIP in Git. Our raw files stay local.
+/data/raw/
 *.zip
-!data/phase1_subset.zip
+!/data/phase1_subset.zip
 
-# python and database local files
+# Our Python environment and coverage files.
 .venv/
 venv/
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .coverage
+.coverage.*
 htmlcov/
-pgdata/
-*.log
 
-# Editor and System Files
+# We keep the local PostgreSQL data on the laptop.
+pgdata/
+
+# dbt makes these files when we run it.
+/dbt_project/target/
+/dbt_project/logs/
+/dbt_project/dbt_packages/
+.user.yml
+
+# We keep the logs that go with our saved checks.
+*.log
+!/evidence/recorded/**/*.log
+!/evidence/phase2/recorded/**/*.log
+
+# Our new test runs and CI runs save reports in these folders.
+/evidence/reproduced/
+/evidence/phase2/reproduced/
+/evidence/phase2/ci/
+
+# These files come from our editors and operating systems.
 .idea/
 .vscode/
 .DS_Store
