@@ -1,0 +1,102 @@
+version: 2
+
+models:
+  - name: dim_patients
+    description: >-
+      We use one row per patient UUID. Our table shows the patient details in this sample. It
+      covers one snapshot.
+    columns:
+      - name: patient_id
+        description: "We join visits to this patient using the original patient UUID."
+        data_tests:
+          - unique
+          - not_null
+      - name: birth_date
+        description: "We can use this date to find the patient's age on the day of a visit."
+      - name: death_date
+        description: >-
+          We keep the death date when one is recorded.
+      - name: gender
+        description: >-
+          We keep the gender value given in the sample. Other nonblank values are allowed.
+  - name: dim_organizations
+    description: >-
+      We use one row per organisation UUID. Our table includes organisations that have no
+      visits.
+    columns:
+      - name: organization_id
+        description: "We join visits to this organisation using its original UUID."
+        data_tests:
+          - unique
+          - not_null
+      - name: name
+        description: >-
+          We show the organisation's name. We use its ID for grouping because names can
+          repeat.
+      - name: city
+        description: "We show the city recorded for this organisation."
+      - name: state
+        description: "We show the recorded state. It can be NULL."
+  - name: fact_encounters
+    description: >-
+      In our fact table, each encounter ID gets one row. We use the patient and organisation
+      IDs to join the details. We keep every visit and its base cost. We calculate duration
+      when a stop time is available. Our tests compare these rows with the source after each
+      full build.
+    columns:
+      - name: encounter_id
+        description: >-
+          We count visits by this original UUID. Each value is present and unique.
+        data_tests:
+          - unique
+          - not_null
+      - name: patient_id
+        description: "We use this required ID to match one row in dim_patients."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_patients')
+                field: patient_id
+      - name: organization_id
+        description: "We use this required ID to match one row in dim_organizations."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_organizations')
+                field: organization_id
+      - name: start_time
+        description: "We take the visit start from Phase 1 as a timestamp with time zone."
+        data_tests:
+          - not_null
+      - name: stop_time
+        description: "We take the visit end from Phase 1. A missing end time gives NULL."
+      - name: encounter_date
+        description: >-
+          We take the date of the start time in UTC. It is the same in every session time
+          zone.
+        data_tests:
+          - not_null
+      - name: encounter_class
+        description: "We use the source class of the visit. We allow any nonblank class."
+        data_tests:
+          - not_null
+      - name: base_encounter_cost
+        description: >-
+          We add these base visit costs in US dollars. Each amount is zero or more and is
+          stored as NUMERIC(14,2).
+        data_tests:
+          - not_null
+      - name: duration_seconds
+        description: >-
+          We subtract the start from the stop to get exact seconds. A missing stop gives NULL.
+          We divide by 60 for minutes. Each visit has its own time, even if two visits
+          overlap.
+      - name: is_after_death
+        description: >-
+          We flag a visit if its UTC start date is later than the recorded death date. A visit
+          on the same date gives false. An unknown death date also gives false. Our full
+          sample has ten flagged visits.
+        data_tests:
+          - not_null
